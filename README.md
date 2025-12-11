@@ -1,6 +1,6 @@
 ## Demo Video
 
-<video src="/Demo.mp4" controls></video>
+[Demo Video](https://github.com/gnaggnagVOID/Claude-AI/blob/main/Demo.mp4)
 
 # Claude AI Chat - Simple & Free
 
