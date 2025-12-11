@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A chat interface for Claude AI using Puter.js - Visual tables, code formatting, and responsive design">
+    <meta name="keywords" content="Claude AI, chat interface, code formatting, markdown, tables, Puter.js, Unlimited use no limit">
+    <meta name="author" content="NullSpecter">
+    <meta name="theme-color" content="#00ffff">
+    <title>Claude AI Chat - Advanced Markdown Support</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!-- Prism.js Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <script src="https://js.puter.com/v2/"></script>
+    <!-- Preconnect to CDN for faster loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://js.puter.com">
+  </head>
+  <body>
+    <main class="chat-container">
+      <header class="chat-header">
+        <h1>Claude AI via Puter.js</h1>
+        <p class="subtitle">by NullSpecter • Demo</p>
+      </header>
+
+      <section class="input-section" aria-labelledby="input-label">
+        <label for="prompt" id="input-label" class="sr-only">Your message</label>
+        <textarea
+          id="prompt"
+          placeholder="Type your question here..."
+          aria-label="Type your question here"
+          aria-describedby="model-selection"
+          rows="4"
+        ></textarea>
+
+        <div class="input-controls">
+          <div class="model-selection" id="model-selection">
+            <label for="model" class="sr-only">Select AI Model</label>
+            <select id="model" aria-label="Select AI Model">
+              <option value="claude-3.5-sonnet">Claude Sonnet 3.5 - unli</option>
+              <option value="claude-sonnet-4-5">Claude Sonnet 4.5</option>
+              <option value="claude-sonnet-4-latest">Claude Sonnet 4</option>
+              <option value="claude-opus-4.5">Claude Opus 4.5</option>
+              <option value="claude-opus-4-latest">Claude Opus 4</option>
+              <option value="claude-opus-4-1">Claude Opus 4.1</option>
+              <option value="claude-haiku-4-5">Claude Haiku 4.5</option>
+              <option value="claude-3-opus">Claude Opus 3 - unli</option>
+              <option value="claude-3-7-sonnet-latest">Claude Sonnet 3.7</option>
+              <option value="gpt-4o">GPT 4o</option>
+              <option value="gpt-5.1">GPT 5.1</option>
+            </select>
+          </div>
+
+          <div class="action-buttons">
+            <button id="generate" aria-label="Send message">Generate</button>
+            <button id="newChat" aria-label="Start new chat">New Chat</button>
+          </div>
+        </div>
+
+        <div class="help-text">
+          <p>Tip: Use <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to submit</p>
+        </div>
+      </section>
+
+      <!-- Save/Load Section -->
+      <section class="file-controls-section" aria-labelledby="file-controls-label">
+        <h2 id="file-controls-label" class="sr-only">File Operations</h2>
+        <div class="file-controls">
+          <button id="saveLocal" aria-label="Download conversation">💾 Download</button>
+          <input type="file" id="fileInput" accept=".json" hidden aria-label="Upload conversation file" />
+          <button id="loadLocal" aria-label="Load conversation from file">📁 Load File</button>
+        </div>
+      </section>
+
+      <section class="output-section" aria-live="polite" aria-label="Chat conversation">
+        <div id="output" class="chat-output" role="log" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <!-- Prism.js Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Prism Autoloader - automatically loads language support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+      // Configure autoloader path
+      Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/';
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
