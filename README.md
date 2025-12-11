@@ -1,6 +1,6 @@
 ## Demo Video
 
-<video src="/Demo.mp4" controls width="700"></video>
+<video src="/Demo.mp4" controls></video>
 
 # Claude AI Chat - Simple & Free
 
@@ -33,7 +33,7 @@ It's super simple:
 4. Open your web browser and go to: `http://localhost:8080/`
 5. Pick your Claude version and start chatting!
 
-Want to try it right away? Visit: https://bwhw827g29wh.github.io/Claude-AI/
+Want to try it right away? Visit: 
 
 ## Auxiliary - Optional but Recommended
 Auxiliary can be used to fix the AI thinking for too long or not responding.
