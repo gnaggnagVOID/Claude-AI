@@ -31,7 +31,8 @@ Want to try it right away? Visit: [Claude AI Chat Interface](https://gnaggnagvoi
 ## Auxiliary - Optional but Recommended
 Auxiliary can be used to fix the AI thinking for too long or not responding.
 [Download](https://raw.githubusercontent.com/gnaggnagVOID/Claude-AI/main/Auxiliary.zip)
-for android devices you need to [download](https://apkcombo.com/kiwi-browser/com.kiwibrowser.browser/) [kiwi](https://apkcombo.com/kiwi-browser/com.kiwibrowser.browser/) browser to use the extension.
+
+for android devices you need to [download](https://apkcombo.com/kiwi-browser/com.kiwibrowser.browser/) [kiwi browser](https://apkcombo.com/kiwi-browser/com.kiwibrowser.browser/) to use the extension.
 
 ![Screenshot](/Auxilliary.png)
 
@@ -48,12 +49,12 @@ Turn on developer mode using the toggle in the top right corner.
 ![Second step](/Steps/4.jpg)
 
 ### Step 3: Load Extension
-Click "Load unpacked" and upload the zip file.
+upload the zip file.
 
 ![Third step](/Steps/3.jpg)
 
 ### Step 4: Select File
-Browse and select the extension file from your computer.
+Browse and select the extension file.
 
 ![Fourth step](/Steps/6.jpg)
 
@@ -69,7 +70,7 @@ Your extension is now installed and ready to use! 🎉
 
 ---
 
-**Note:** Make sure to keep the extension folder in a permanent location, as moving it will break the installation.
+**Note:** Make sure to keep the extension folder in a permanent location, as moving it will break the installation (only if ur in a pc).
 
 ---
 
