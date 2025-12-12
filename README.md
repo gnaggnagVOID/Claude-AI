@@ -36,29 +36,42 @@ for android devices you need to [download](https://apkcombo.com/kiwi-browser/com
 ![Screenshot](/Auxilliary.png)
 
 ## How?
-Open the app and go to extension.
-![first step](/Steps/5.jpg)
 
+### Step 1: Open Extensions
+Open the app and navigate to the extensions page.
 
-Turn on the developer  mode.
-![2nd step](/Steps/4.jpg)
+![First step](/Steps/5.jpg)
 
+### Step 2: Enable Developer Mode
+Turn on developer mode using the toggle in the top right corner.
 
-Upload the zip file.
-![third step](/Steps/3.jpg)
+![Second step](/Steps/4.jpg)
 
+### Step 3: Load Extension
+Click "Load unpacked" and upload the zip file.
 
-Select the file.
-![forth step](/Steps/6.jpg)
+![Third step](/Steps/3.jpg)
 
+### Step 4: Select File
+Browse and select the extension file from your computer.
 
-To open it just click the icon.
-![fifth step](/Steps/2.png)
+![Fourth step](/Steps/6.jpg)
 
+### Step 5: Launch Extension
+Click the extension icon in your browser toolbar to open it.
 
-and your done!
-![done](/Steps/1.png)
+![Fifth step](/Steps/2.png)
 
+### All Done!
+Your extension is now installed and ready to use! 🎉
+
+![Done](/Steps/1.png)
+
+---
+
+**Note:** Make sure to keep the extension folder in a permanent location, as moving it will break the installation.
+
+---
 
 ## Quick Tips
 
