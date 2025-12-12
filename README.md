@@ -37,17 +37,28 @@ for android devices you need to [download](https://apkcombo.com/kiwi-browser/com
 
 ## How?
 Open the app and go to extension.
-1. ![first step](/Steps/5.jpg)
+![first step](/Steps/5.jpg)
+
+
 Turn on the developer  mode.
-3. ![2nd step](/Steps/4.jpg)
+![2nd step](/Steps/4.jpg)
+
+
 Upload the zip file.
-5. ![third step](/Steps/3.jpg)
+![third step](/Steps/3.jpg)
+
+
 Select the file.
-7. ![forth step](/Steps/6.jpg)
+![forth step](/Steps/6.jpg)
+
+
 To open it just click the icon.
-9. ![fifth step](/Steps/2.png)
+![fifth step](/Steps/2.png)
+
+
 and your done!
 ![done](/Steps/1.png)
+
 
 ## Quick Tips
 
