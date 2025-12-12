@@ -27,6 +27,8 @@ You can choose from these Claude versions:
 ## Try it out!  
 
 Want to try it right away? Visit: [Claude AI Chat Interface](https://gnaggnagvoid.github.io/Claude-AI/)
+V2 fully dark mode with offline support, chat history, and a lot of models:
+[The Void AI Chat Interface](https://gnaggnagvoid.github.io/The-Void-AI/)
 
 ## Auxiliary - Optional but Recommended
 Auxiliary can be used to fix the AI thinking for too long or not responding.
@@ -70,7 +72,7 @@ Your extension is now installed and ready to use! 🎉
 
 ---
 
-**Note:** Make sure to keep the extension folder in a permanent location, as moving it will break the installation (only if ur in a pc).
+**Note:** Make sure to keep the extension folder in a permanent location, as moving it will break the installation (only if you're on a PC).
 
 ---
 
