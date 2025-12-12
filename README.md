@@ -24,22 +24,30 @@ You can choose from these Claude versions:
 - Claude Opus 4.5 (faster)
 - And a few more versions!
 
-## How to Use
-
-It's super simple:
-1. Download this project to your computer
-2. Open your terminal, go to the project folder
-3. Type: `py -m http.server 8080`
-4. Open your web browser and go to: `http://localhost:8080/`
-5. Pick your Claude version and start chatting!
+## Try it out!  
 
 Want to try it right away? Visit: [Claude AI Chat Interface](https://gnaggnagvoid.github.io/Claude-AI/)
 
 ## Auxiliary - Optional but Recommended
 Auxiliary can be used to fix the AI thinking for too long or not responding.
 [Download](https://raw.githubusercontent.com/gnaggnagVOID/Claude-AI/main/Auxiliary.zip)
+for android devices you need to [download](https://apkcombo.com/kiwi-browser/com.kiwibrowser.browser/) [kiwi](https://apkcombo.com/kiwi-browser/com.kiwibrowser.browser/) browser to use the extension.
 
 ![Screenshot](/Auxilliary.png)
+
+## How?
+Open the app and go to extension.
+1. ![first step](/5.jpg)
+Turn on the developer  mode.
+3. ![2nd step](/4.jpg)
+Upload the zip file.
+5. ![third step](/3.jpg)
+Select the file.
+7. ![forth step](/6.jpg)
+To open it just click the icon.
+9. ![fifth step](/2.png)
+and your done!
+![done](/1.png)
 
 ## Quick Tips
 
