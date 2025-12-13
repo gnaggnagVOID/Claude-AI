@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A chat interface for Claude AI using Puter.js - Visual tables, code formatting, and responsive design">
+    <meta name="keywords" content="Claude AI, chat interface, code formatting, markdown, tables, Puter.js, Unlimited use no limit">
+    <meta name="author" content="NullSpecter">
+    <meta name="theme-color" content="#00ffff">
+    <title>Claude AI Chat - Advanced Markdown Support</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Prism.js Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <script src="https://js.puter.com/v2/"></script>
+    <!-- Preconnect to CDN for faster loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://js.puter.com">
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h2>Chat History</h2>
+          <button id="newChatBtn" class="new-chat-btn">+ New Chat</button>
+        </div>
+        <div class="chat-history-list" id="chatHistoryList">
+          <div class="no-chats-message">No chats yet</div>
+        </div>
+      </aside>
+      <button id="toggleSidebar" class="toggle-sidebar-btn">☰</button>
+
+      <main class="chat-container">
+        <header class="chat-header">
+          <div class="header-content">
+            <div>
+              <h1>Claude AI via Puter.js</h1>
+              <p class="subtitle">by NullSpecter • Demo</p>
+            </div>
+            <div id="onlineStatus" class="online-status">● Online</div>
+          </div>
+        </header>
+
+        <section class="output-section" aria-live="polite" aria-label="Chat conversation">
+          <div id="output" class="chat-output" role="log" aria-live="polite"></div>
+        </section>
+
+        <section class="input-section" aria-labelledby="input-label">
+          <label for="prompt" id="input-label" class="sr-only">Your message</label>
+          
+          <div class="input-wrapper">
+            <!-- Left Controls -->
+            <div class="left-controls">
+              <button id="clearCurrentChat" class="control-btn" aria-label="Clear current chat" title="Clear Chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <line x1="10" y1="11" x2="10" y2="17"></line>
+                  <line x1="14" y1="11" x2="14" y2="17"></line>
+                </svg>
+              </button>
+
+              <button id="saveLocal" class="control-btn" aria-label="Download conversation" title="Download">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </button>
+
+              <input type="file" id="fileInput" accept=".json" hidden aria-label="Upload conversation file" />
+              <button id="loadLocal" class="control-btn" aria-label="Load conversation from file" title="Load File">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                  <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+              </button>
+
+              <!-- Custom Model Selector -->
+              <div class="model-selector-wrapper">
+                <button id="modelSelectorBtn" class="control-btn model-btn" aria-label="Select AI Model" title="Select Model">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H1m18.2 5.2l-4.2-4.2m0-6l4.2-4.2"></path>
+                  </svg>
+                </button>
+                <div class="model-dropdown" id="modelDropdown">
+                  <div class="model-dropdown-header">Select AI Model</div>
+                  <div class="model-options">
+                    <div class="model-option" data-value="claude-sonnet-4-5">
+                      <span class="model-name">Claude Sonnet 4.5</span>
+                      <span class="model-badge">Latest</span>
+                    </div>
+                    <div class="model-option" data-value="claude-sonnet-4-latest">
+                      <span class="model-name">Claude Sonnet 4</span>
+                    </div>
+                    <div class="model-option" data-value="claude-opus-4.5">
+                      <span class="model-name">Claude Opus 4.5</span>
+                      <span class="model-badge">Pro</span>
+                    </div>
+                    <div class="model-option" data-value="claude-opus-4-latest">
+                      <span class="model-name">Claude Opus 4</span>
+                    </div>
+                    <div class="model-option" data-value="claude-opus-4-1">
+                      <span class="model-name">Claude Opus 4.1</span>
+                    </div>
+                    <div class="model-option" data-value="claude-haiku-4-5">
+                      <span class="model-name">Claude Haiku 4.5</span>
+                      <span class="model-badge">Fast</span>
+                    </div>
+                    <div class="model-option" data-value="claude-3-opus">
+                      <span class="model-name">Claude Opus 3</span>
+                    </div>
+                    <div class="model-option" data-value="claude-3.5-sonnet">
+                      <span class="model-name">Claude Sonnet 3.5</span>
+                    </div>
+                    <div class="model-option" data-value="claude-3-7-sonnet-latest">
+                      <span class="model-name">Claude Sonnet 3.7</span>
+                    </div>
+                    <div class="model-option" data-value="gpt-4o">
+                      <span class="model-name">GPT 4o</span>
+                    </div>
+                    <div class="model-option" data-value="gpt-5.1">
+                      <span class="model-name">GPT 5.1</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Hidden select for form compatibility -->
+                <select id="model" aria-label="Select AI Model" style="display: none;">
+                  <option value="claude-sonnet-4-5">Claude Sonnet 4.5</option>
+                  <option value="claude-sonnet-4-latest">Claude Sonnet 4</option>
+                  <option value="claude-opus-4.5">Claude Opus 4.5</option>
+                  <option value="claude-opus-4-latest">Claude Opus 4</option>
+                  <option value="claude-opus-4-1">Claude Opus 4.1</option>
+                  <option value="claude-haiku-4-5">Claude Haiku 4.5</option>
+                  <option value="claude-3-opus">Claude Opus 3</option>
+                  <option value="claude-3.5-sonnet">Claude Sonnet 3.5</option>
+                  <option value="claude-3-7-sonnet-latest">Claude Sonnet 3.7</option>
+                  <option value="gpt-4o">GPT 4o</option>
+                  <option value="gpt-5.1">GPT 5.1</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Textarea -->
+            <textarea
+              id="prompt"
+              placeholder="Type your question here..."
+              aria-label="Type your question here"
+              aria-describedby="model-selection"
+              rows="1"
+            ></textarea>
+
+            <!-- Right Controls -->
+            <div class="right-controls">
+              <button id="generate" class="control-btn generate-btn" aria-label="Send message" title="Generate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Prism.js Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Prism Autoloader - automatically loads language support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+      // Configure autoloader path
+      Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/';
+    </script>
+    <script src="script.js"></script>
+    <script>
+      // Custom Model Selector Logic
+      const modelSelectorBtn = document.getElementById('modelSelectorBtn');
+      const modelDropdown = document.getElementById('modelDropdown');
+      const modelOptions = document.querySelectorAll('.model-option');
+      const hiddenSelect = document.getElementById('model');
+
+      // Toggle dropdown
+      modelSelectorBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        modelDropdown.classList.toggle('active');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!modelDropdown.contains(e.target) && e.target !== modelSelectorBtn) {
+          modelDropdown.classList.remove('active');
+        }
+      });
+
+      // Handle model selection
+      modelOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          const value = option.getAttribute('data-value');
+          
+          // Update hidden select
+          hiddenSelect.value = value;
+          
+          // Update active state
+          modelOptions.forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+          
+          // Close dropdown
+          modelDropdown.classList.remove('active');
+          
+          // Visual feedback
+          modelSelectorBtn.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            modelSelectorBtn.style.transform = 'scale(1)';
+          }, 100);
+        });
+      });
+
+      // Set first option as active by default
+      if (modelOptions.length > 0) {
+        modelOptions[0].classList.add('active');
+      }
+
+      // Auto-resize textarea
+      const textarea = document.getElementById('prompt');
+      textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+      });
+    </script>
+
+    <!-- Service Worker Registration for Offline Support -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then((registration) => {
+              console.log('ServiceWorker registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('ServiceWorker registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
