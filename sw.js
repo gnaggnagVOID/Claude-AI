@@ -1,11 +1,11 @@
 const CACHE_NAME = 'claude-ai-chat-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/script.js',
-  '/style.css',
-  '/favicon.png',
-  '/manifest.json',
+  './',
+  './index.html',
+  './script.js',
+  './style.css',
+  './favicon.png',
+  './manifest.json',
 ];
 
 // Install event - cache the specified resources

@@ -2,15 +2,14 @@
   "name": "Claude AI Chat",
   "short_name": "Claude Chat",
   "description": "Offline-capable chat with Claude AI",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#00cccc",
   "display_override": ["fullscreen", "minimal-ui"],
-  "display": "standalone",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "./favicon.png",
       "sizes": "225x225",
       "type": "image/png"
     }
