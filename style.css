@@ -1283,7 +1283,7 @@ tbody tr:nth-child(odd):hover {
   border: 1px solid rgba(255, 100, 100, 0.3);
 }
 
-@media (max-height: 1690px) {
+@media (min-height: 1640px) and (max-height: 1690px) {
   body {
     padding: 5px;
   }
@@ -1306,13 +1306,13 @@ tbody tr:nth-child(odd):hover {
   }
 
   .control-btn {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
   }
 
   .generate-btn {
-    width: 34px;
-    height: 34px;
+    width: 54px;
+    height: 54px;
   }
 
   .chat-output {
@@ -1339,11 +1339,14 @@ tbody tr:nth-child(odd):hover {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  padding-left: 14vh;
 }
 
 .online-status {
   display: inline-block;
   padding: 4px 12px;
+  margin-top: 9px;
+  margin-right: 16vh;
   border-radius: 20px;
   font-size: 12px;
   font-weight: bold;
