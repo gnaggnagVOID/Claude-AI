@@ -33,7 +33,7 @@ body ::-webkit-scrollbar {
   display: flex;
   width: 100%;
   max-width: 1600px;
-  height: 95vh;
+  height: 100vh;
   background: #0d0d12;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 100, 255, 0.3);
@@ -193,15 +193,15 @@ body ::-webkit-scrollbar {
   background: #0d0d12;
   padding: 20px;
   gap: 20px;
-  min-height: 100%;
-  overflow-y: auto; /* Keep this for scrolling */
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* ===== Header ===== */
 .chat-header {
   text-align: center;
   padding-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .chat-header h1 {
@@ -223,8 +223,8 @@ body ::-webkit-scrollbar {
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 70vh;
-  overflow:hidden;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .chat-output {
@@ -243,6 +243,7 @@ body ::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-height: 0;
 }
 
 .chat-output:empty::before {
@@ -261,6 +262,7 @@ body ::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 /* ===== Input Wrapper (Fixed Container) ===== */
@@ -305,7 +307,6 @@ body ::-webkit-scrollbar {
 }
 
 .control-btn:hover {
-  
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 100, 255, 0.5);
 }
@@ -468,7 +469,6 @@ textarea::placeholder {
 }
 
 .generate-btn:hover {
- 
   box-shadow: 0 6px 20px rgba(0, 100, 255, 0.6);
   border-color: #0080ff;
 }
@@ -1024,25 +1024,58 @@ tbody tr:nth-child(odd):hover {
   background-color: rgba(0, 50, 150, 0.2);
 }
 
+/* ===== Online Status Indicator ===== */
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.online-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 70px;
+}
+
+.online-status.online {
+  color: #00cc66;
+  background-color: rgba(0, 200, 100, 0.1);
+  border: 1px solid rgba(0, 200, 100, 0.3);
+}
+
+.online-status.offline {
+  color: #ff6666;
+  background-color: rgba(255, 100, 100, 0.1);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
   body {
-    padding: 10px;
+    padding: 0;
   }
 
   .app-container {
     flex-direction: column;
-    height: auto;
+    height: 100vh;
+    border-radius: 0;
   }
 
   .sidebar {
     width: 100%;
     height: auto;
-    max-height: 30vh;
+    max-height: 50vh;
     border-right: none;
     border-bottom: 1px solid rgba(0, 100, 255, 0.4);
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
     z-index: 900;
     transform: translateY(-100%);
@@ -1062,6 +1095,7 @@ tbody tr:nth-child(odd):hover {
     padding: 15px;
     gap: 15px;
     margin-top: 50px;
+    height: calc(100vh - 50px);
   }
 
   .chat-header h1 {
@@ -1105,92 +1139,6 @@ tbody tr:nth-child(odd):hover {
     justify-content: space-between;
   }
 
-  .chat-output {
-    max-height: 115vh;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 5px;
-  }
-
-  .chat-container {
-    padding: 10px;
-    border-radius: 12px;
-  }
-
-  .chat-header h1 {
-    font-size: 20px;
-  }
-
-  .input-wrapper {
-    padding: 6px;
-  }
-
-  .left-controls {
-    gap: 4px;
-  }
-
-  .control-btn {
-    width: 30px;
-    height: 30px;
-  }
-
-  .generate-btn {
-    width: 34px;
-    height: 34px;
-  }
-
-  .chat-output {
-    padding: 15px;
-    max-height: 70vh;
-  }
-
-  .message {
-    padding: 12px;
-  }
-
-  .code-block {
-    padding: 10px !important;
-  }
-
-  .code-block code {
-    font-size: 12px !important;
-  }
-}
-
-/* ===== Online Status Indicator ===== */
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.online-status {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  min-width: 70px;
-}
-
-.online-status.online {
-  color: #00cc66;
-  background-color: rgba(0, 200, 100, 0.1);
-  border: 1px solid rgba(0, 200, 100, 0.3);
-}
-
-.online-status.offline {
-  color: #ff6666;
-  background-color: rgba(255, 100, 100, 0.1);
-  border: 1px solid rgba(255, 100, 100, 0.3);
-}
-
-@media (max-width: 768px) {
   .header-content {
     flex-direction: column;
     align-items: center;
@@ -1202,15 +1150,9 @@ tbody tr:nth-child(odd):hover {
   }
 }
 
-
-@media (max-height: 963px) {
-  body {
-    padding: 5px;
-  }
-
+@media (max-width: 480px) {
   .chat-container {
     padding: 10px;
-    border-radius: 12px;
   }
 
   .chat-header h1 {
@@ -1237,7 +1179,6 @@ tbody tr:nth-child(odd):hover {
 
   .chat-output {
     padding: 15px;
-    max-height: 70vh;
   }
 
   .message {
@@ -1251,117 +1192,4 @@ tbody tr:nth-child(odd):hover {
   .code-block code {
     font-size: 12px !important;
   }
-}
-
-/* ===== Online Status Indicator ===== */
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.online-status {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  min-width: 70px;
-}
-
-.online-status.online {
-  color: #00cc66;
-  background-color: rgba(0, 200, 100, 0.1);
-  border: 1px solid rgba(0, 200, 100, 0.3);
-}
-
-.online-status.offline {
-  color: #ff6666;
-  background-color: rgba(255, 100, 100, 0.1);
-  border: 1px solid rgba(255, 100, 100, 0.3);
-}
-
-@media (min-height: 1640px) and (max-height: 1690px) {
-  body {
-    padding: 5px;
-  }
-
-  .chat-container {
-    padding: 10px;
-    border-radius: 12px;
-  }
-
-  .chat-header h1 {
-    font-size: 20px;
-  }
-
-  .input-wrapper {
-    padding: 6px;
-  }
-
-  .left-controls {
-    gap: 4px;
-  }
-
-  .control-btn {
-    width: 50px;
-    height: 50px;
-  }
-
-  .generate-btn {
-    width: 54px;
-    height: 54px;
-  }
-
-  .chat-output {
-    padding: 15px;
-    max-height: 83vh;
-  }
-
-  .message {
-    padding: 12px;
-  }
-
-  .code-block {
-    padding: 10px !important;
-  }
-
-  .code-block code {
-    font-size: 12px !important;
-  }
-}
-
-/* ===== Online Status Indicator ===== */
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  padding-left: 14vh;
-}
-
-.online-status {
-  display: inline-block;
-  padding: 4px 12px;
-  margin-top: 9px;
-  margin-right: 16vh;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  min-width: 70px;
-}
-
-.online-status.online {
-  color: #00cc66;
-  background-color: rgba(0, 200, 100, 0.1);
-  border: 1px solid rgba(0, 200, 100, 0.3);
-}
-
-.online-status.offline {
-  color: #ff6666;
-  background-color: rgba(255, 100, 100, 0.1);
-  border: 1px solid rgba(255, 100, 100, 0.3);
 }
