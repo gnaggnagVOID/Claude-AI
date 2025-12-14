@@ -1282,3 +1282,83 @@ tbody tr:nth-child(odd):hover {
   background-color: rgba(255, 100, 100, 0.1);
   border: 1px solid rgba(255, 100, 100, 0.3);
 }
+
+@media (max-height: 1690px) {
+  body {
+    padding: 5px;
+  }
+
+  .chat-container {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .chat-header h1 {
+    font-size: 20px;
+  }
+
+  .input-wrapper {
+    padding: 6px;
+  }
+
+  .left-controls {
+    gap: 4px;
+  }
+
+  .control-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .generate-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .chat-output {
+    padding: 15px;
+    max-height: 83vh;
+  }
+
+  .message {
+    padding: 12px;
+  }
+
+  .code-block {
+    padding: 10px !important;
+  }
+
+  .code-block code {
+    font-size: 12px !important;
+  }
+}
+
+/* ===== Online Status Indicator ===== */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.online-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 70px;
+}
+
+.online-status.online {
+  color: #00cc66;
+  background-color: rgba(0, 200, 100, 0.1);
+  border: 1px solid rgba(0, 200, 100, 0.3);
+}
+
+.online-status.offline {
+  color: #ff6666;
+  background-color: rgba(255, 100, 100, 0.1);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+}
