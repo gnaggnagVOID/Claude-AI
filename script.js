@@ -332,9 +332,9 @@ async function initializeData() {
 }
 
 // ===== Context limit settings =====
-const MAX_USER_MSGS = 10;
-const MAX_ASSISTANT_MSGS = 10;
-const MAX_TOTAL_MSGS = 21; // 10 user + 10 assistant + 1 new user message
+const MAX_USER_MSGS = 7;
+const MAX_ASSISTANT_MSGS = 7;
+const MAX_TOTAL_MSGS = 15; // 10 user + 10 assistant + 1 new user message
 
 // ===== Helper Functions for Chat History =====
 function generateChatId() {
